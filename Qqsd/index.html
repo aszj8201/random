@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>z</title>
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .fade-in {
+        animation: fadeIn 0.3s ease-out;
+        background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+        -webkit-background-clip: text;
+        color: transparent;
+        font-weight: 900;
+      }
+      .wrap {
+        background-image: url('https://i1.sndcdn.com/artworks-000049909608-wpupq6-t500x500.jpg');
+        width: 100vw;
+        height: 100vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      button {
+        margin-top: 40px;
+        margin-bottom: 20px;
+        width: 245px;
+        height: 50px;
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+        background-color: rgb(250, 149, 166);
+        font-size: 24px;
+        border-radius: 16px;
+      }
+      button:hover {
+        rotate: 720deg;
+        scale: 1.5;
+        transition: 1s;
+      }
+      button:active {
+        transform: scale(1.2);
+      }
+      #aaa {
+        background-color: rgba(77, 77, 77, 0.432);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <button id="Butt">두구두구두구</button>
+      <!-- <button id="reset">다시</button> -->
+      <h1 style="background-color: blueviolet">블로그 주제요? ㅋㅋ</h1>
+      <div style="font-size: 40px" id="aaa"></div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const Butt = document.getElementById('Butt');
+        const aaa = document.getElementById('aaa');
+
+        Butt.addEventListener('click', function () {
+          document.getElementById('Butt').setAttribute('disabled', 'true');
+          const ran_val = Math.random();
+          let result;
+          if (ran_val < 0.2) {
+            result = '독서할게요';
+          } else if (ran_val < 0.4) {
+            result = '개발할게요';
+          } else if (ran_val < 0.6) {
+            result = '다시할게요';
+          } else if (ran_val < 0.8) {
+            result = '싹다할게요';
+          } else {
+            result = '걍안할게요';
+          }
+
+          const Span_T = document.createElement('span');
+          Span_T.textContent = result;
+
+          Span_T.classList.add('fade-in');
+
+          aaa.appendChild(Span_T);
+        });
+      });
+    </script>
+  </body>
+</html>
